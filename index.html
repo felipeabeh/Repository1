@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="True North Watches — Curated pre-owned luxury timepieces. Rolex, Patek Philippe, Audemars Piguet, Omega and more. Serving Ottawa, Gatineau and all of Canada.">
+  <title>True North Watches — Timeless Watches, True to the North</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <div class="nav__logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <line x1="12" y1="6" x2="12" y2="12.5"/>
+            <line x1="12" y1="12.5" x2="15.5" y2="14.5"/>
+            <line x1="12" y1="12" x2="8.5" y2="10"/>
+          </svg>
+        </div>
+        <div class="nav__logo-text">
+          <span class="nav__logo-name">True North</span>
+          <span class="nav__logo-tagline">Watches</span>
+        </div>
+      </a>
+
+      <div class="nav__links">
+        <a href="index.html" class="nav__link active">Home</a>
+        <a href="watches.html" class="nav__link">Collection</a>
+        <a href="sold.html" class="nav__link">Archive</a>
+        <a href="#brands" class="nav__link">Brands</a>
+        <a href="#about" class="nav__link">About</a>
+      </div>
+
+      <div class="nav__actions">
+        <a href="watches.html" class="nav__cta">View Collection</a>
+        <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav__mobile" id="mobile-menu">
+    <a href="index.html" class="nav__mobile-link">Home</a>
+    <a href="watches.html" class="nav__mobile-link">Collection</a>
+    <a href="sold.html" class="nav__mobile-link">Archive</a>
+    <a href="#brands" class="nav__mobile-link">Brands</a>
+    <a href="#about" class="nav__mobile-link">About</a>
+    <a href="#contact" class="nav__mobile-link">Contact</a>
+  </div>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__orb"></div>
+
+    <div class="hero__content">
+      <div class="hero__eyebrow">
+        <span class="gold-line"></span>
+        <span class="hero__eyebrow-text">Ottawa &amp; Gatineau's Premier Watch Source</span>
+      </div>
+      <h1 class="hero__title">
+        Curated<br>
+        <em>Timepieces,</em><br>
+        True to the North
+      </h1>
+      <p class="hero__subtitle">
+        Pre-owned luxury watches — authenticated, photographed unedited, and offered with full transparency. Rolex, Patek Philippe, Audemars Piguet, Omega, and more.
+      </p>
+      <div class="hero__actions">
+        <a href="watches.html" class="btn btn-primary">
+          Browse Collection
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <button class="btn btn-outline" onclick="openInquiry('general')">General Inquiry</button>
+      </div>
+    </div>
+
+    <div class="hero__stats">
+      <div class="hero__stat">
+        <div class="hero__stat-number" id="stat-available">—</div>
+        <div class="hero__stat-label">In Stock</div>
+      </div>
+      <div class="hero__stat">
+        <div class="hero__stat-number" id="stat-brands">—</div>
+        <div class="hero__stat-label">Brands</div>
+      </div>
+    </div>
+
+    <div class="hero__scroll">
+      <span class="hero__scroll-text">Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===================== TRUST BAR ===================== -->
+  <div class="trust-bar">
+    <div class="trust-bar__inner">
+      <div class="trust-item">
+        <svg class="trust-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+        </svg>
+        <div class="trust-item__text">
+          <span class="trust-item__label">100% Authenticated</span>
+          <span class="trust-item__desc">Every piece verified before listing</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <svg class="trust-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path d="M9 22V12h6v10"/>
+        </svg>
+        <div class="trust-item__text">
+          <span class="trust-item__label">Free Local Delivery</span>
+          <span class="trust-item__desc">Ottawa &amp; Gatineau area</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <svg class="trust-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 4v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+        </svg>
+        <div class="trust-item__text">
+          <span class="trust-item__label">Canada-Wide Shipping</span>
+          <span class="trust-item__desc">Insured, discreet delivery</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <svg class="trust-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+        </svg>
+        <div class="trust-item__text">
+          <span class="trust-item__label">Complimentary Case</span>
+          <span class="trust-item__desc">Travel case included with every purchase</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== FEATURED COLLECTION ===================== -->
+  <section class="section" id="collection">
+    <div class="container">
+      <div class="section__header reveal">
+        <div class="section__header-left">
+          <div class="section__eyebrow">
+            <span class="gold-line"></span>
+            <span class="t-label gold">Now Available</span>
+          </div>
+          <h2 class="section__title">Featured Pieces</h2>
+          <p class="section__desc">A hand-selected curation of the finest pre-owned timepieces currently in our possession. All photographs are unedited — what you see is exactly what you receive.</p>
+        </div>
+        <a href="watches.html" class="btn btn-gold-outline reveal reveal-delay-2">
+          View All
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Featured grid populated by JS -->
+      <div class="watch-grid" id="featured-grid">
+        <!-- Loading state -->
+        <div style="grid-column:1/-1; padding:60px; text-align:center; color:var(--muted);">
+          <span class="t-label">Loading collection…</span>
+        </div>
+      </div>
+
+      <div class="text-center mt-48 reveal">
+        <a href="watches.html" class="btn btn-outline">
+          View Full Collection
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BRANDS ===================== -->
+  <section class="section section--dark" id="brands">
+    <div class="container">
+      <div class="section__header reveal">
+        <div class="section__header-left">
+          <div class="section__eyebrow">
+            <span class="gold-line"></span>
+            <span class="t-label gold">By Maison</span>
+          </div>
+          <h2 class="section__title">Brands We Carry</h2>
+        </div>
+      </div>
+      <div class="brands reveal" id="brands-grid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT / STORY ===================== -->
+  <section class="story" id="about">
+    <div class="story__visual">
+      <img src="assets/story-bg.jpg" alt="Watch close-up" style="width:100%;height:100%;object-fit:cover;">
+      <!-- Fallback gradient if no image -->
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,#111 0%,#222 100%);display:flex;align-items:center;justify-content:center;">
+        <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.3)" stroke-width="0.5">
+          <circle cx="12" cy="12" r="9"/><line x1="12" y1="3" x2="12" y2="12.5"/><line x1="12" y1="12.5" x2="16" y2="14.5"/>
+        </svg>
+      </div>
+      <div class="story__visual-accent">
+        <div class="t-label" style="margin-bottom:4px; color:var(--black); opacity:0.7;">Established</div>
+        <div style="font-family:var(--font-serif);font-size:2.5rem;font-weight:300;color:var(--black);line-height:1;">Ottawa</div>
+      </div>
+    </div>
+
+    <div class="story__content">
+      <div class="reveal">
+        <div class="section__eyebrow">
+          <span class="gold-line"></span>
+          <span class="t-label gold">Our Promise</span>
+        </div>
+        <h2 class="section__title mt-16">Honest Watches.<br>Honest People.</h2>
+        <p class="section__desc mt-24">
+          True North Watches was built on a simple belief: buying a luxury watch should be as trustworthy as the watch itself. Every piece we list is photographed unedited — no filters, no touch-ups — and described with full transparency about condition.
+        </p>
+      </div>
+
+      <div class="story__points reveal reveal-delay-2">
+        <div class="story__point">
+          <div class="story__point-num">01</div>
+          <div class="story__point-body">
+            <div class="story__point-title">Unedited Photography</div>
+            <div class="story__point-desc">Every photo you see is exactly what the watch looks like. No post-processing, no misleading angles.</div>
+          </div>
+        </div>
+        <div class="story__point">
+          <div class="story__point-num">02</div>
+          <div class="story__point-body">
+            <div class="story__point-title">Condition Transparency</div>
+            <div class="story__point-desc">We grade every watch honestly — dial, case, bracelet — and disclose any wear or service history.</div>
+          </div>
+        </div>
+        <div class="story__point">
+          <div class="story__point-num">03</div>
+          <div class="story__point-body">
+            <div class="story__point-title">Local & National Reach</div>
+            <div class="story__point-desc">Based in Ottawa/Gatineau with free local delivery. Insured shipping available across Canada and the US.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RECENT SALES / SOCIAL PROOF ===================== -->
+  <section class="section section--mid" id="recent">
+    <div class="container">
+      <div class="section__header reveal">
+        <div class="section__header-left">
+          <div class="section__eyebrow">
+            <span class="gold-line"></span>
+            <span class="t-label gold">Recently Sold</span>
+          </div>
+          <h2 class="section__title">Moved Quickly</h2>
+          <p class="section__desc">These pieces found their new homes fast — a reflection of our fair pricing and trusted reputation.</p>
+        </div>
+        <a href="sold.html" class="btn btn-outline reveal reveal-delay-2">View Archive</a>
+      </div>
+
+      <div class="watch-grid watch-grid--tight" id="sold-preview-grid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT CTA ===================== -->
+  <section class="section section--dark" id="contact">
+    <div class="container text-center">
+      <div class="reveal">
+        <div style="display:flex;justify-content:center;margin-bottom:20px;">
+          <span class="gold-line"></span>
+          <span class="t-label gold">Get in Touch</span>
+        </div>
+        <h2 class="section__title" style="margin:0 auto 20px;">Looking for Something Specific?</h2>
+        <p class="section__desc" style="max-width:540px;margin:0 auto 48px;">
+          Don't see what you're looking for? We source watches regularly and may be able to find your grail. Reach out and tell us what you're after.
+        </p>
+        <div style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;">
+          <button class="btn btn-primary" onclick="openInquiry('general')">Send an Inquiry</button>
+          <a href="tel:3432043547" class="btn btn-outline">343-204-3547</a>
+        </div>
+        <div style="margin-top:48px;display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;">
+          <a href="https://instagram.com/truenorthwatches" target="_blank" rel="noopener" class="t-label" style="color:var(--muted);letter-spacing:0.14em;transition:color 0.3s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">Instagram</a>
+          <a href="https://facebook.com/truenorthwatches" target="_blank" rel="noopener" class="t-label" style="color:var(--muted);letter-spacing:0.14em;transition:color 0.3s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">Facebook</a>
+          <a href="https://tiktok.com/@truenorthwatches" target="_blank" rel="noopener" class="t-label" style="color:var(--muted);letter-spacing:0.14em;transition:color 0.3s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">TikTok</a>
+          <a href="https://youtube.com/@truenorthwatches" target="_blank" rel="noopener" class="t-label" style="color:var(--muted);letter-spacing:0.14em;transition:color 0.3s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">YouTube</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="container">
+        <div class="footer__grid">
+          <div>
+            <div class="footer__brand-name">True North Watches</div>
+            <div class="footer__brand-tagline">Timeless Watches, True to the North</div>
+            <p class="footer__about">Curated pre-owned luxury timepieces, sourced and sold with full transparency. Based in Ottawa/Gatineau — serving collectors across Canada and the United States.</p>
+            <div class="footer__social">
+              <a href="https://instagram.com/truenorthwatches" class="footer__social-link" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+              <a href="https://facebook.com/truenorthwatches" class="footer__social-link" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+              </a>
+              <a href="https://tiktok.com/@truenorthwatches" class="footer__social-link" target="_blank" rel="noopener" aria-label="TikTok">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg>
+              </a>
+              <a href="https://youtube.com/@truenorthwatches" class="footer__social-link" target="_blank" rel="noopener" aria-label="YouTube">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footer__col-title">Collection</div>
+            <div class="footer__links">
+              <a href="watches.html" class="footer__link">All Watches</a>
+              <a href="watches.html?brand=Rolex" class="footer__link">Rolex</a>
+              <a href="watches.html?brand=Patek+Philippe" class="footer__link">Patek Philippe</a>
+              <a href="watches.html?brand=Audemars+Piguet" class="footer__link">Audemars Piguet</a>
+              <a href="watches.html?brand=Omega" class="footer__link">Omega</a>
+              <a href="watches.html?brand=Cartier" class="footer__link">Cartier</a>
+              <a href="sold.html" class="footer__link">Sold Archive</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footer__col-title">Company</div>
+            <div class="footer__links">
+              <a href="#about" class="footer__link">About Us</a>
+              <a href="#about" class="footer__link">Our Promise</a>
+              <a href="#contact" class="footer__link">Contact</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footer__col-title">Contact</div>
+            <div class="footer__contact-item">
+              <span class="footer__contact-label">Phone</span>
+              <div class="footer__contact-value"><a href="tel:3432043547">343-204-3547</a></div>
+            </div>
+            <div class="footer__contact-item">
+              <span class="footer__contact-label">Location</span>
+              <div class="footer__contact-value">Ottawa / Gatineau, Canada</div>
+            </div>
+            <div class="footer__contact-item">
+              <span class="footer__contact-label">Shipping</span>
+              <div class="footer__contact-value">Canada &amp; United States</div>
+            </div>
+            <div class="mt-24">
+              <button class="btn btn-gold-outline" style="width:100%;justify-content:center;" onclick="openInquiry('general')">
+                Send Inquiry
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom container">
+      <span class="footer__copy">&copy; 2025 True North Watches. All rights reserved.</span>
+      <div class="footer__legal">
+        <a href="#" class="footer__legal-link">Privacy Policy</a>
+        <a href="#" class="footer__legal-link">Terms of Sale</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== INQUIRY MODAL ===================== -->
+  <div class="modal-overlay" id="inquiry-modal">
+    <div class="modal">
+      <button class="modal__close" onclick="closeInquiry()" aria-label="Close">&times;</button>
+      <div class="modal__eyebrow">
+        <span class="gold-line"></span>
+        <span class="t-label gold">Get in Touch</span>
+      </div>
+      <h2 class="modal__title">Inquire About This Watch</h2>
+      <p class="modal__watch-name" id="modal-watch-name">General Inquiry</p>
+
+      <form id="inquiry-form" novalidate>
+        <input type="hidden" name="watch" id="modal-watch-field">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div class="form-group">
+            <label class="form-label" for="inq-name">Your Name</label>
+            <input class="form-input" type="text" id="inq-name" name="name" placeholder="John Smith" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="inq-phone">Phone</label>
+            <input class="form-input" type="tel" id="inq-phone" name="phone" placeholder="+1 (613) 000-0000">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="inq-email">Email Address</label>
+          <input class="form-input" type="email" id="inq-email" name="email" placeholder="john@example.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="inq-message">Message</label>
+          <textarea class="form-textarea" id="inq-message" name="message" placeholder="I'm interested in this watch. Please let me know availability and any additional details..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:16px;">
+          Send Inquiry
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
+            <path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/>
+          </svg>
+        </button>
+        <p style="font-size:0.72rem;color:var(--muted);text-align:center;margin-top:16px;">We typically respond within a few hours. You can also call us directly at <a href="tel:3432043547" style="color:var(--gold);">343-204-3547</a>.</p>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/inventory.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Populate stats
+    document.getElementById("stat-available").textContent = AVAILABLE_WATCHES.length;
+    document.getElementById("stat-brands").textContent = BRANDS.length;
+
+    // Render featured + recently available (up to 4 cards)
+    const homeWatches = AVAILABLE_WATCHES.slice(0, 4);
+    renderWatchGrid("featured-grid", homeWatches);
+
+    // Render sold preview (up to 3)
+    renderWatchGrid("sold-preview-grid", SOLD_WATCHES.slice(0, 3), { compact: true });
+
+    // Brands grid
+    const brandsGrid = document.getElementById("brands-grid");
+    if (brandsGrid) {
+      brandsGrid.innerHTML = BRANDS.map(brand => {
+        const count = getBrandCount(brand, "available");
+        return `
+          <a href="watches.html?brand=${encodeURIComponent(brand)}" class="brand-item">
+            <div class="brand-item__name">${brand}</div>
+            <div class="brand-item__count">${count} Available</div>
+          </a>`;
+      }).join("");
+    }
+  </script>
+</body>
+</html>
