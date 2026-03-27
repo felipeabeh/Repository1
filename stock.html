@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Current watch inventory — True North Watches, Ottawa / Gatineau.">
+  <title>Current Stock — True North Watches</title>
+  <link rel="icon" href="/assets/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="/assets/logo.png" alt="True North Watches"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+        <span class="nav__logo-text" style="display:none;">True North Watches</span>
+      </a>
+
+      <div class="nav__links">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="stock.html" class="nav__link active">Current Stock</a>
+        <a href="index.html#about" class="nav__link">About</a>
+        <a href="index.html#contact" class="nav__link">Contact</a>
+      </div>
+
+      <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="mobile-menu">
+    <a href="index.html" class="nav__mobile-link">Home</a>
+    <a href="stock.html" class="nav__mobile-link">Current Stock</a>
+    <a href="index.html#about" class="nav__mobile-link">About</a>
+    <a href="index.html#contact" class="nav__mobile-link">Contact</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="container">
+      <h1 class="page-header__title">Current Stock</h1>
+      <p class="page-header__sub">Updated regularly — tap any watch for more photos and details.</p>
+    </div>
+  </div>
+
+  <!-- STOCK GRID -->
+  <section class="section">
+    <div class="container">
+      <div id="stock-grid" class="stock-grid">
+        <div class="loading">Loading inventory…</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT STRIP -->
+  <section class="section section--alt">
+    <div class="container">
+      <p style="font-size:0.9rem; color:var(--silver); margin-bottom:12px;">Questions about a watch? Get in touch directly.</p>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a href="tel:3432043547" style="font-size:1rem; color:var(--accent);">343-204-3547</a>
+        <a href="https://instagram.com/truenorthwatches" target="_blank" rel="noopener"
+           style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--muted); padding-top:4px;">
+          @truenorthwatches
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding:0;">
+    <div class="container">
+      <div class="footer">
+        <span class="footer__copy">&copy; 2025 True North Watches</span>
+        <div class="footer__links">
+          <a href="index.html" class="footer__link">Home</a>
+          <a href="index.html#contact" class="footer__link">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PHOTO MODAL -->
+  <div class="modal-overlay" id="watch-modal">
+    <div class="modal">
+      <button class="modal__close" id="modal-close" aria-label="Close">&times;</button>
+      <img class="modal__main-img" id="modal-main-img" src="" alt="">
+      <div class="modal__thumbs" id="modal-thumbs"></div>
+      <div class="modal__body">
+        <div class="modal__name" id="modal-name"></div>
+        <div class="modal__cat" id="modal-cat"></div>
+        <div class="modal__note" id="modal-note" style="display:none;"></div>
+        <div class="modal__row">
+          <span class="modal__price" id="modal-price"></span>
+          <span class="modal__status" id="modal-status"></span>
+        </div>
+        <p class="modal__contact">
+          To order or ask questions: <a href="tel:3432043547">343-204-3547</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Load and render inventory
+    fetch('/data/watches.json')
+      .then(r => {
+        if (!r.ok) throw new Error('Could not load inventory');
+        return r.json();
+      })
+      .then(watches => renderStock(watches))
+      .catch(() => {
+        document.getElementById('stock-grid').innerHTML =
+          '<div class="empty">Could not load inventory. Please try again later.</div>';
+      });
+
+    function renderStock(watches) {
+      const grid = document.getElementById('stock-grid');
+
+      if (!watches.length) {
+        grid.innerHTML = '<div class="empty">No watches in stock right now — check back soon.</div>';
+        return;
+      }
+
+      grid.innerHTML = watches.map(w => {
+        const firstImg  = (w.images && w.images[0]) || '';
+        const imgCount  = (w.images && w.images.length) || 0;
+        const statusCls = w.status === 'In Stock' ? 'watch-card__status' : 'watch-card__status watch-card__status--sold';
+
+        const mediaHtml = firstImg
+          ? `<img class="watch-card__img" src="${firstImg}" alt="${w.name}" loading="lazy">`
+          : `<div class="watch-card__img-placeholder">
+               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                 <circle cx="12" cy="12" r="9"/>
+                 <line x1="12" y1="6" x2="12" y2="12.5"/>
+                 <line x1="12" y1="12.5" x2="15.5" y2="14.5"/>
+               </svg>
+             </div>`;
+
+        const countBadge = imgCount > 1
+          ? `<span class="watch-card__count">${imgCount} photos</span>`
+          : '';
+
+        const noteHtml = w.note
+          ? `<div class="watch-card__note">${w.note}</div>`
+          : '';
+
+        return `
+          <div class="watch-card" onclick='openModal(${JSON.stringify(w)})'>
+            <div class="watch-card__img-wrap">
+              ${mediaHtml}
+              ${countBadge}
+            </div>
+            <div class="watch-card__body">
+              <div class="watch-card__name">${w.name}</div>
+              <div class="watch-card__cat">${w.category}</div>
+              ${noteHtml}
+              <div class="watch-card__footer">
+                <span class="watch-card__price">${w.price}</span>
+                <span class="${statusCls}">${w.status}</span>
+              </div>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    // Modal
+    let currentImages = [];
+    let currentIndex  = 0;
+
+    function openModal(watch) {
+      currentImages = watch.images || [];
+      currentIndex  = 0;
+
+      const modal    = document.getElementById('watch-modal');
+      const mainImg  = document.getElementById('modal-main-img');
+      const thumbs   = document.getElementById('modal-thumbs');
+      const noteEl   = document.getElementById('modal-note');
+
+      document.getElementById('modal-name').textContent   = watch.name;
+      document.getElementById('modal-cat').textContent    = watch.category;
+      document.getElementById('modal-price').textContent  = watch.price;
+      document.getElementById('modal-status').textContent = watch.status;
+
+      if (watch.note) {
+        noteEl.textContent    = watch.note;
+        noteEl.style.display  = 'block';
+      } else {
+        noteEl.style.display  = 'none';
+      }
+
+      // Main image
+      if (currentImages.length) {
+        mainImg.src = currentImages[0];
+        mainImg.alt = watch.name;
+        mainImg.style.display = 'block';
+      } else {
+        mainImg.style.display = 'none';
+      }
+
+      // Thumbnails (only shown if more than 1 image)
+      if (currentImages.length > 1) {
+        thumbs.style.display = 'flex';
+        thumbs.innerHTML = currentImages.map((src, i) =>
+          `<img class="modal__thumb${i === 0 ? ' active' : ''}"
+                src="${src}" alt="Photo ${i+1}"
+                onclick="selectThumb(${i})"
+                loading="lazy">`
+        ).join('');
+      } else {
+        thumbs.style.display = 'none';
+        thumbs.innerHTML = '';
+      }
+
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function selectThumb(index) {
+      currentIndex = index;
+      document.getElementById('modal-main-img').src = currentImages[index];
+      document.querySelectorAll('.modal__thumb').forEach((t, i) => {
+        t.classList.toggle('active', i === index);
+      });
+    }
+
+    function closeModal() {
+      document.getElementById('watch-modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    document.getElementById('watch-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  </script>
+</body>
+</html>

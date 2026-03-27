@@ -1,0 +1,41 @@
+[
+  {
+    "id": "watch-001",
+    "name": "Rolex Daytona Black",
+    "category": "1:1 Super Clone",
+    "price": "$650",
+    "status": "In Stock",
+    "featured": true,
+    "note": "",
+    "images": [
+      "/assets/watches/watch-001-a.jpg",
+      "/assets/watches/watch-001-b.jpg",
+      "/assets/watches/watch-001-c.jpg"
+    ]
+  },
+  {
+    "id": "watch-002",
+    "name": "Rolex Submariner Date",
+    "category": "AAA",
+    "price": "$320",
+    "status": "In Stock",
+    "featured": false,
+    "note": "Green bezel",
+    "images": [
+      "/assets/watches/watch-002-a.jpg",
+      "/assets/watches/watch-002-b.jpg"
+    ]
+  },
+  {
+    "id": "watch-003",
+    "name": "AP Royal Oak",
+    "category": "1:1 Super Clone",
+    "price": "$580",
+    "status": "In Stock",
+    "featured": false,
+    "note": "Blue dial",
+    "images": [
+      "/assets/watches/watch-003-a.jpg"
+    ]
+  }
+]
